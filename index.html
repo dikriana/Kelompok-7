@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Pencatatan Program Latihan Mahasiswa UMMI</title>
+</head>
+<body>
+    <header>
+        <h1>Pencatatan Program Latihan Mahasiswa UMMI</h1>
+    </header>
+    <section id="main-content">
+        <form action="#" method="post" id="exercise-form">
+            <label for="exercise-name">Nama Latihan:</label>
+            <input type="text" id="exercise-name" name="exercise-name" required>
+
+            <label for="exercise-duration">Durasi (menit):</label>
+            <input type="number" id="exercise-duration" name="exercise-duration" required>
+
+            <label for="exercise-description">Deskripsi:</label>
+            <textarea id="exercise-description" name="exercise-description" rows="4" required></textarea>
+
+            <button type="submit">Tambah Latihan</button>
+        </form>
+
+        <div id="exercise-list">
+            <!-- Daftar latihan akan ditampilkan di sini -->
+        </div>
+    </section>
+</body>
+</html>
