@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Your existing head content here -->
+    <title>Pencatatan Program Latihan Mahasiswa UMMI</title>
+</head>
+<body>
+    <header>
+        <h1>Pencatatan Program Latihan Mahasiswa UMMI</h1>
+    </header>
+    <section id="main-content">
+        <form action="#" method="post" id="exercise-form">
+            <label for="exercise-name">Nama Latihan:</label>
+            <input type="text" id="exercise-name" name="exercise-name" required>
+            <label for="exercise-duration">Durasi (menit):</label>
+            <input type="number" id="exercise-duration" name="exercise-duration" required>
+
+            <label for="exercise-description">Deskripsi:</label>
+            <textarea id="exercise-description" name="exercise-description" rows="4" required></textarea>
+
+            <button type="submit" onclick="addExercise()">Tambah Latihan</button>
+        </form>
+
+        <div id="exercise-list">
+            <!-- Daftar latihan akan ditampilkan di sini -->
+        </div>
+    </section>
+
+    <script>
+        // JavaScript code goes here
+
+        function addExercise() {
+            // Get input values
+            var exerciseName = document.getElementById('exercise-name').value;
+            var exerciseDuration = document.getElementById('exercise-duration').value;
+            var exerciseDescription = document.getElementById('exercise-description').value;
+
+            // Create a new exercise entry
+            var exerciseEntry = document.createElement('div');
+            exerciseEntry.innerHTML = '<strong>' + exerciseName + '</strong> - Durasi: ' + exerciseDuration + ' menit<br>' + exerciseDescription;
+
+            // Append the new exercise entry to the exercise-list
+            document.getElementById('exercise-list').appendChild(exerciseEntry);
+
+            // Clear form inputs
+            document.getElementById('exercise-name').value = '';
+            document.getElementById('exercise-duration').value = '';
+            document.getElementById('exercise-description').value = '';
+        }
+
+        // Apply CSS styles dynamically
+        document.body.style.fontFamily = 'Arial, sans-serif';
+        document.body.style.margin = '0';
+        document.body.style.padding = '0';
+        document.body.style.backgroundColor = '#f4f4f4';
+        document.body.style.backgroundImage = 'url(img/bg-ummi.jpg)';
+        document.body.style.backgroundSize = 'cover';
+
+        document.querySelector('header').style.backgroundColor = 'rgb(39, 71, 255)';
+        document.querySelector('header').style.textAlign = 'center';
+        document.querySelector('header').style.padding = '1em 0';
+
+        var mainContent = document.getElementById('main-content');
+        mainContent.style.opacity = '0.95';
+        mainContent.style.maxWidth = '800px';
+        mainContent.style.margin = '20px auto';
+        mainContent.style.padding = '20px';
+        mainContent.style.backgroundColor = '#fff';
+        mainContent.style.borderRadius = '8px';
+        mainContent.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.1)';
+
+        var form = document.querySelector('form');
+        form.style.marginBottom = '20px';
+
+        var labels = document.querySelectorAll('label');
+        labels.forEach(function(label) {
+            label.style.display = 'block';
+            label.style.marginBottom = '8px';
+        });
+
+        var inputs = document.querySelectorAll('input, textarea');
+        inputs.forEach(function(input) {
+            input.style.width = '100%';
+            input.style.padding = '8px';
+            input.style.marginBottom = '16px';
+            input.style.boxSizing = 'border-box';
+        });
+
+        var button = document.querySelector('button');
+        button.style.backgroundColor = '#333';
+        button.style.color = '#fff';
+        button.style.padding = '10px 15px';
+        button.style.border = 'none';
+        button.style.borderRadius = '4px';
+        button.style.cursor = 'pointer';
+
+        button.addEventListener('mouseover', function() {
+            button.style.backgroundColor = '#555';
+        });
+
+        var exerciseList = document.getElementById('exercise-list');
+        exerciseList.style.borderTop = '1px solid #ccc';
+        exerciseList.style.paddingTop = '20px';
+    </script>
+</body>
+</html>

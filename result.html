@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Your existing head content here -->
+    <title>Pencatatan Program Latihan Mahasiswa UMMI</title>
+</head>
+<body>
+    <header>
+        <h1>Pencatatan Program Latihan Mahasiswa UMMI</h1>
+    </header>
+    <section id="main-content">
+        <table id="exercise-table">
+            <thead>
+                <tr>
+                    <th>Nama Latihan</th>
+                    <th>Durasi (menit)</th>
+                    <th>Deskripsi</th>
+                </tr>
+            </thead>
+            <tbody id="exercise-table-body">
+                <!-- Data latihan akan ditampilkan di sini -->
+            </tbody>
+        </table>
+        <div id="explanation">
+            <!-- Penjelasan atau konten tambahan -->
+        </div>
+    </section>
+
+    <script>
+        // JavaScript code goes here
+
+        document.addEventListener('DOMContentLoaded', function () {
+            displayExerciseDetails();
+        });
+
+        function displayExerciseDetails() {
+            // Ambil data dari localStorage
+            var storedExerciseData = localStorage.getItem('exerciseData');
+            var exerciseData = storedExerciseData ? JSON.parse(storedExerciseData) : null;
+
+            if (exerciseData) {
+                // Tampilkan data dalam tabel
+                var exerciseTableBody = document.getElementById('exercise-table-body');
+                var newRow = exerciseTableBody.insertRow();
+                newRow.insertCell(0).textContent = exerciseData.name;
+                newRow.insertCell(1).textContent = exerciseData.duration;
+                newRow.insertCell(2).textContent = exerciseData.description;
+
+                // Hapus data dari localStorage setelah ditampilkan
+                localStorage.removeItem('exerciseData');
+            }
+
+            // Tambahkan penjelasan atau konten tambahan di bagian explanation
+            var explanationDiv = document.getElementById('explanation');
+            explanationDiv.innerHTML = '<p>Ini adalah penjelasan atau konten tambahan.</p>';
+        }
+    </script>
+</body>
+</html>
